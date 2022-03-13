@@ -1,7 +1,17 @@
 from ctypes import cdll
 import os
-__version__ = '2.0.1'
 __author__ = 'Kevin Napier'
+
+# Fetch or compute a version
+try:
+    from ._version import version as  __version__
+except ImportError:
+    try:
+        from setuptools_scm import get_version
+        __version__ = get_version()
+        del get_version
+    except ImportError:
+        __version__ = "unknown"
 
 # Find suffix
 import sysconfig

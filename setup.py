@@ -3,6 +3,7 @@ from setuptools import setup, Extension
 import sys
 import sysconfig
 import glob
+from setuptools_scm import get_version
 
 suffix = sysconfig.get_config_var('EXT_SUFFIX')
 if suffix is None:
@@ -33,7 +34,7 @@ for dir in dirs:
 
 setup(
     name='spacerocks',
-    version='2.0.1',
+    version=get_version(write_to="spacerocks/_version.py"),
     description='A Python Package for Solar System Ephemerides and Dynamics.',
     author='Kevin J. Napier',
     author_email='kjnapier@umich.edu',
